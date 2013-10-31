@@ -30,7 +30,7 @@
         public void ShouldBuildOptionalExpression()
         {
             // Arrange, Act
-            string pattern = Pattern.Match(@"[\w]", Has.Optional());
+            string pattern = Pattern.Match(@"[\w]", Is.Optional());
 
             // Assert
             Assert.Equal(@"[\w]?", pattern);

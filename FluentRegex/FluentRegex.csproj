@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Formatters\Has.cs" />
     <Compile Include="Formatters\As.cs" />
+    <Compile Include="Formatters\Is.cs" />
     <Compile Include="Pattern.cs" />
     <Compile Include="Pattern.Expressions.cs">
       <DependentUpon>Pattern.cs</DependentUpon>

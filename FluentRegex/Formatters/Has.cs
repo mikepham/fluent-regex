@@ -32,14 +32,5 @@
         {
             return new PatternFormatter("{0}+");
         }
-
-        /// <summary>
-        /// Optionally matches the expression.
-        /// </summary>
-        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
-        public static PatternFormatter Optional()
-        {
-            return new PatternFormatter("{0}?");
-        }
     }
 }
