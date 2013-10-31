@@ -44,8 +44,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Has.cs" />
-    <Compile Include="As.cs" />
+    <Compile Include="Formatters\Has.cs" />
+    <Compile Include="Formatters\As.cs" />
     <Compile Include="Pattern.cs" />
     <Compile Include="Pattern.Expressions.cs">
       <DependentUpon>Pattern.cs</DependentUpon>
@@ -55,6 +55,7 @@
     <Compile Include="PhoneNumberKind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,4 +1,4 @@
-﻿namespace FluentRegex
+﻿namespace FluentRegex.Formatters
 {
     /// <summary>
     /// Static helper class for defining existence matches.

@@ -1,4 +1,4 @@
-﻿namespace FluentRegex
+﻿namespace FluentRegex.Formatters
 {
     /// <summary>
     /// Static helper for grouping matches.
@@ -28,27 +28,27 @@
         /// Creates a non-matching group.
         /// </summary>
         /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
-        public static PatternExpression NonMatching()
+        public static PatternFormatter NonMatching()
         {
-            return new PatternExpression("(?:{0})");
+            return new PatternFormatter("(?:{0})");
         }
 
         /// <summary>
         /// Creates a string boundary.
         /// </summary>
         /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
-        public static PatternExpression String()
+        public static PatternFormatter String()
         {
-            return new PatternExpression("^{0}$");
+            return new PatternFormatter("^{0}$");
         }
 
         /// <summary>
         /// Creates word boundary.
         /// </summary>
         /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
-        public static PatternExpression WordBoundary()
+        public static PatternFormatter WordBoundary()
         {
-            return new PatternExpression("\\b{0]\\b");
+            return new PatternFormatter("\\b{0}\\b");
         }
     }
 }

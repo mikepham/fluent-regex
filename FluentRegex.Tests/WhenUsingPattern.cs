@@ -1,5 +1,7 @@
 ﻿namespace FluentRegex.Tests
 {
+    using FluentRegex.Formatters;
+
     using Xunit;
 
     public class WhenUsingPattern
