@@ -6,15 +6,6 @@
     public static class Has
     {
         /// <summary>
-        /// Ensures that the match exists at least once.
-        /// </summary>
-        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
-        public static PatternFormatter AtLeastOne()
-        {
-            return new PatternFormatter("{0}+");
-        }
-
-        /// <summary>
         /// Ensures the expression matches exactly the specified count.
         /// </summary>
         /// <param name="count">The count.</param>
@@ -31,6 +22,15 @@
         public static PatternFormatter One()
         {
             return Count(1);
+        }
+
+        /// <summary>
+        /// Ensures that the match exists at least once.
+        /// </summary>
+        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
+        public static PatternFormatter OneOrMore()
+        {
+            return new PatternFormatter("{0}+");
         }
 
         /// <summary>

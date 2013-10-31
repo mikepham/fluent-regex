@@ -8,10 +8,20 @@
         public void ShouldBuildNamedGroupExpressionWithAtLeastOneMatch()
         {
             // Arrange, Act
-            string pattern = Pattern.Match(@"[\w]*", As.Name("name"), Has.AtLeastOne());
+            string pattern = Pattern.Match(@"[\w]*", As.Name("name"), Has.OneOrMore());
 
             // Assert
             Assert.Equal(@"(?<name>[\w]*)+", pattern);
+        }
+
+        [Fact]
+        public void ShouldBuildWithOrderedPatternFormatters()
+        {
+            // Arrange, Act
+            string pattern = Pattern.Match(@"[\w]", Has.OneOrMore(), As.Name("name"));
+
+            // Assert
+            Assert.Equal(@"(?<name>[\w]+)", pattern);
         }
 
         [Fact]
