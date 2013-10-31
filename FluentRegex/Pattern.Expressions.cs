@@ -10,9 +10,9 @@
         /// </summary>
         /// <param name="kind">The kind.</param>
         /// <returns>Returns a <see cref="PatternExpression"/>.</returns>
-        public static PatternExpression PhoneNumber(PhoneNumberKind kind)
+        public static PatternExpression Phone(PhoneNumberKind kind = PhoneNumberKind.Default)
         {
-            return PatternExpression.Empty.PhoneNumber(kind);
+            return PatternExpression.Empty.Phone(kind);
         }
 
         /// <summary>
@@ -21,7 +21,7 @@
         /// <param name="pattern">The pattern.</param>
         /// <param name="kind">The kind.</param>
         /// <returns>Returns a <see cref="PatternExpression"/>.</returns>
-        public static PatternExpression PhoneNumber(this PatternExpression pattern, PhoneNumberKind kind)
+        public static PatternExpression Phone(this PatternExpression pattern, PhoneNumberKind kind = PhoneNumberKind.Default)
         {
             switch (kind)
             {
