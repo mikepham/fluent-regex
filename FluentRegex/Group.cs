@@ -9,10 +9,10 @@
         /// Creates a named group.
         /// </summary>
         /// <param name="name">The name.</param>
-        /// <returns>Returns a <see cref="PatternFormat"/>.</returns>
-        public static PatternFormat ByName(string name)
+        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
+        public static PatternFormatter ByName(string name)
         {
-            return new PatternFormat("(?<" + name + ">{0})");
+            return new PatternFormatter("(?<" + name + ">{0})");
         }
     }
 }

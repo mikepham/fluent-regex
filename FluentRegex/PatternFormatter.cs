@@ -3,13 +3,13 @@
     /// <summary>
     /// Represents a pattern formatter.
     /// </summary>
-    public class PatternFormat
+    public class PatternFormatter
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PatternFormat"/> class.
+        /// Initializes a new instance of the <see cref="PatternFormatter"/> class.
         /// </summary>
         /// <param name="expressionFormat">The format.</param>
-        public PatternFormat(string expressionFormat)
+        public PatternFormatter(string expressionFormat)
         {
             this.ExpressionFormat = expressionFormat;
         }

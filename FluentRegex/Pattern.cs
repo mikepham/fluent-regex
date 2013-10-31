@@ -9,11 +9,23 @@
         /// Matches the specified expression.
         /// </summary>
         /// <param name="expression">The expression.</param>
-        /// <param name="expressions">The expressions.</param>
-        /// <returns>Returns a <see cref="PatternExpression"/>.</returns>
-        public static PatternExpression Match(string expression, params PatternFormat[] expressions)
+        /// <param name="formatters">The formatters.</param>
+        /// <returns>Returns a <see cref="PatternExpression" />.</returns>
+        public static PatternExpression Match(string expression, params PatternFormatter[] formatters)
         {
-            return new PatternExpression(expression, expressions);
+            return new PatternExpression(expression, formatters);
+        }
+
+        /// <summary>
+        /// Matches the specified pattern.
+        /// </summary>
+        /// <param name="pattern">The pattern.</param>
+        /// <param name="expression">The expression.</param>
+        /// <param name="formatters">The formatters.</param>
+        /// <returns>Returns a <see cref="PatternExpression"/>.</returns>
+        public static PatternExpression Match(this PatternExpression pattern, string expression, params PatternFormatter[] formatters)
+        {
+            return new PatternExpression(pattern.Build() + expression, formatters);
         }
     }
 }

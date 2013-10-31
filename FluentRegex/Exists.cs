@@ -8,10 +8,28 @@
         /// <summary>
         /// Ensures that the match exists at least once.
         /// </summary>
-        /// <returns>Returns a <see cref="PatternFormat"/>.</returns>
-        public static PatternFormat AtLeastOnce()
+        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
+        public static PatternFormatter AtLeastOnce()
         {
-            return new PatternFormat("{0}+");
+            return new PatternFormatter("{0}+");
+        }
+
+        /// <summary>
+        /// Ensures that the match exists just once.
+        /// </summary>
+        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
+        public static PatternFormatter Once()
+        {
+            return new PatternFormatter("{0}{{1,1}}");
+        }
+
+        /// <summary>
+        /// Optionally matches the expression.
+        /// </summary>
+        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
+        public static PatternFormatter Optional()
+        {
+            return new PatternFormatter("{0}?");
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Represents a pattern expression part.
@@ -9,45 +10,34 @@
     public class PatternExpression
     {
         /// <summary>
-        /// Maintains the user-defined expression.
-        /// </summary>
-        private readonly string expression;
-
-        /// <summary>
         /// Maintains a collection of expression formatting options.
         /// </summary>
-        private readonly IEnumerable<PatternFormat> expressions;
+        private readonly IEnumerable<PatternFormatter> formatters;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PatternExpression"/> class.
+        /// Initializes a new instance of the <see cref="PatternExpression" /> class.
         /// </summary>
-        /// <param name="format">The expression.</param>
-        public PatternExpression(string format)
-            : this(format, Enumerable.Empty<PatternFormat>())
+        /// <param name="expression">The expression.</param>
+        public PatternExpression(string expression)
+            : this(expression, Enumerable.Empty<PatternFormatter>())
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PatternExpression"/> class.
+        /// Initializes a new instance of the <see cref="PatternExpression" /> class.
         /// </summary>
-        /// <param name="format">The expression.</param>
-        /// <param name="expressions">The expressions.</param>
-        public PatternExpression(string format, IEnumerable<PatternFormat> expressions)
+        /// <param name="expression">The expression.</param>
+        /// <param name="formatters">The formatters.</param>
+        public PatternExpression(string expression, IEnumerable<PatternFormatter> formatters)
         {
-            this.expression = format;
-            this.expressions = expressions;
+            this.Expression = expression;
+            this.formatters = formatters;
         }
 
         /// <summary>
         /// Gets the expression.
         /// </summary>
-        protected string Expression
-        {
-            get
-            {
-                return this.expression;
-            }
-        }
+        public string Expression { get; private set; }
 
         /// <summary>
         /// Builds an expression string.
@@ -55,7 +45,17 @@
         /// <returns>Returns the string representing the expression.</returns>
         public string Build()
         {
-            return this.expressions.Aggregate(this.Expression, (current, ex) => ex.Build(current));
+            return this.formatters.Aggregate(this.Expression, (current, ex) => ex.Build(current));
+        }
+
+        /// <summary>
+        /// Compiles the expression with the specified options.
+        /// </summary>
+        /// <param name="options">The options.</param>
+        /// <returns>Returns a <see cref="Regex"/>.</returns>
+        public Regex Compile(RegexOptions options = RegexOptions.Compiled)
+        {
+            return new Regex(this.Build(), options);
         }
     }
 }

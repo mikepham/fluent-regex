@@ -40,7 +40,7 @@
     <Compile Include="Group.cs" />
     <Compile Include="Pattern.cs" />
     <Compile Include="PatternExpression.cs" />
-    <Compile Include="PatternFormat.cs" />
+    <Compile Include="PatternFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
