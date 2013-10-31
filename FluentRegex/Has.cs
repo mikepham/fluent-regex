@@ -3,13 +3,13 @@
     /// <summary>
     /// Static helper class for defining existence matches.
     /// </summary>
-    public static class Exists
+    public static class Has
     {
         /// <summary>
         /// Ensures that the match exists at least once.
         /// </summary>
         /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
-        public static PatternFormatter AtLeastOnce()
+        public static PatternFormatter AtLeastOne()
         {
             return new PatternFormatter("{0}+");
         }
@@ -18,7 +18,7 @@
         /// Ensures that the match exists just once.
         /// </summary>
         /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
-        public static PatternFormatter Once()
+        public static PatternFormatter One()
         {
             return new PatternFormatter("{0}{{1,1}}");
         }

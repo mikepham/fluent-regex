@@ -8,7 +8,7 @@
         public void ShouldBuildNamedGroupExpressionWithAtLeastOneMatch()
         {
             // Arrange, Act
-            var pattern = Pattern.Match(@"[\w]*", Group.ByName("name"), Exists.AtLeastOnce()).Build();
+            var pattern = Pattern.Match(@"[\w]*", As.Group("name"), Has.AtLeastOne()).Build();
 
             // Assert
             Assert.Equal(@"(?<name>[\w]*)+", pattern);
@@ -18,7 +18,7 @@
         public void ShouldBuildOptionalExpression()
         {
             // Arrange, Act
-            var pattern = Pattern.Match(@"[\w]", Exists.Optional()).Build();
+            var pattern = Pattern.Match(@"[\w]", Has.Optional()).Build();
 
             // Assert
             Assert.Equal(@"[\w]?", pattern);

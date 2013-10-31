@@ -10,6 +10,11 @@
     public class PatternExpression
     {
         /// <summary>
+        /// Defines an empty pattern expression.
+        /// </summary>
+        private static readonly PatternExpression EmptyExpression = new PatternExpression(string.Empty);
+
+        /// <summary>
         /// Maintains a collection of expression formatting options.
         /// </summary>
         private readonly IEnumerable<PatternFormatter> formatters;
@@ -35,6 +40,17 @@
         }
 
         /// <summary>
+        /// Gets the empty expression.
+        /// </summary>
+        public static PatternExpression Empty
+        {
+            get
+            {
+                return EmptyExpression;
+            }
+        }
+
+        /// <summary>
         /// Gets the expression.
         /// </summary>
         public string Expression { get; private set; }
@@ -53,7 +69,7 @@
         /// </summary>
         /// <param name="options">The options.</param>
         /// <returns>Returns a <see cref="Regex"/>.</returns>
-        public Regex Compile(RegexOptions options = RegexOptions.Compiled)
+        public Regex Compile(RegexOptions options = RegexOptions.None)
         {
             return new Regex(this.Build(), options);
         }

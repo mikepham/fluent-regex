@@ -3,7 +3,7 @@
     /// <summary>
     /// Static helper class to begin new patterns.
     /// </summary>
-    public static class Pattern
+    public static partial class Pattern
     {
         /// <summary>
         /// Matches the specified expression.
