@@ -8,7 +8,7 @@
         public void ShouldBuildNamedGroupExpressionWithAtLeastOneMatch()
         {
             // Arrange, Act
-            var pattern = Pattern.Match(@"[\w]*", As.Group("name"), Has.AtLeastOne()).Build();
+            string pattern = Pattern.Match(@"[\w]*", As.Name("name"), Has.AtLeastOne());
 
             // Assert
             Assert.Equal(@"(?<name>[\w]*)+", pattern);
@@ -18,7 +18,7 @@
         public void ShouldBuildOptionalExpression()
         {
             // Arrange, Act
-            var pattern = Pattern.Match(@"[\w]", Has.Optional()).Build();
+            string pattern = Pattern.Match(@"[\w]", Has.Optional());
 
             // Assert
             Assert.Equal(@"[\w]?", pattern);
@@ -28,7 +28,7 @@
         public void ShouldComposeTwoExpressions()
         {
             // Arrange, Act
-            var pattern = Pattern.Match(@"[\w]*").Match(@"[\s]+").Build();
+            string pattern = Pattern.Match(@"[\w]*").Match(@"[\s]+");
 
             // Assert
             Assert.Equal(@"[\w]*[\s]+", pattern);

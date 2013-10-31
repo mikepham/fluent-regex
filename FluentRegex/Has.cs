@@ -15,12 +15,22 @@
         }
 
         /// <summary>
+        /// Ensures the expression matches exactly the specified count.
+        /// </summary>
+        /// <param name="count">The count.</param>
+        /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
+        public static PatternFormatter Count(int count)
+        {
+            return new PatternFormatter("{0}{{" + count + "}}");
+        }
+
+        /// <summary>
         /// Ensures that the match exists just once.
         /// </summary>
         /// <returns>Returns a <see cref="PatternFormatter"/>.</returns>
         public static PatternFormatter One()
         {
-            return new PatternFormatter("{0}{{1,1}}");
+            return Count(1);
         }
 
         /// <summary>
