@@ -43,5 +43,15 @@
             // Assert
             Assert.Equal(@"[\w]*[\s]+", pattern);
         }
+
+        [Fact]
+        public void ShouldBuildMatchOrExpression()
+        {
+            // Arrange, Act
+            string pattern = Pattern.Match(@"[\w]").Or(@"[\s]");
+
+            // Assert
+            Assert.Equal(@"[\w]|[\s]", pattern);
+        }
     }
 }

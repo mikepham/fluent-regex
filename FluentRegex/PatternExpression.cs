@@ -110,7 +110,7 @@
         /// <returns>Returns the string representing the expression.</returns>
         public string Build()
         {
-            return this.formatters.Aggregate(this.Expression, (current, ex) => ex.Build(current));
+            return this.formatters.Aggregate(this.Expression, (current, formatter) => formatter.Format(current));
         }
 
         /// <summary>

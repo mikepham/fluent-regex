@@ -24,7 +24,7 @@
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>Returns a string representing the formatted expression.</returns>
-        public string Build(string value)
+        public string Format(string value)
         {
             return string.Format(this.ExpressionFormat, value);
         }
