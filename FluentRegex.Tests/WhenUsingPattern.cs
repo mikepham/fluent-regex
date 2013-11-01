@@ -7,6 +7,16 @@
     public class WhenUsingPattern
     {
         [Fact]
+        public void ShouldBuildValueSelectionExpression()
+        {
+            // Arrange, Act
+            string pattern = Pattern.Any(new[] { "a", "b", "c" });
+
+            // Assert
+            Assert.Equal("a|b|c", pattern);
+        }
+
+        [Fact]
         public void ShouldBuildNamedGroupExpressionWithAtLeastOneMatch()
         {
             // Arrange, Act

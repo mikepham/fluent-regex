@@ -1,10 +1,38 @@
 ﻿namespace FluentRegex
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Static helper class to begin new pattern expressions.
     /// </summary>
     public static partial class Pattern
     {
+        /// <summary>
+        /// Matches any of the provided values.
+        /// </summary>
+        /// <param name="values">The values.</param>
+        /// <param name="formatters">The formatters.</param>
+        /// <returns>Returns a <see cref="PatternExpression" />.</returns>
+        public static PatternExpression Any(IEnumerable<string> values, params PatternFormatter[] formatters)
+        {
+            return new PatternExpression(string.Join("|", values), formatters);
+        }
+
+        /// <summary>
+        /// Matches any of the provided values.
+        /// </summary>
+        /// <param name="expression">The expression.</param>
+        /// <param name="values">The values.</param>
+        /// <param name="formatters">The formatters.</param>
+        /// <returns>Returns a <see cref="PatternExpression" />.</returns>
+        public static PatternExpression Any(
+            this PatternExpression expression,
+            IEnumerable<string> values,
+            params PatternFormatter[] formatters)
+        {
+            return new PatternExpression(expression.Build() + string.Join("|", values), formatters);
+        }
+
         /// <summary>
         /// Matches the specified expression.
         /// </summary>
